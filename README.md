@@ -7,3 +7,6 @@
 - **2、简单接单介绍下项目中使用到的一些框架**
 	- ##### 1. mvvm使用的是jiepack里的常用的几个组件dadabinding、viewmodel、livedata后面会把room也加上
 	- ##### 2. 图片加载框架这里使用的glide
+	- ##### 3. 本地缓存数据使用的MMKV
+	- ##### 4. 路由框架使用阿里的ARouter
+	- ##### 5. 事件总栈自己用livedata封装的livedatabus
