@@ -5,5 +5,5 @@
 
 
 - **2、简单接单介绍下项目中使用到的一些框架**
-- #####	1、mvvm使用的是jiepack里的常用的几个组件dadabinding、viewmodel、livedata
+1. #####mvvm使用的是jiepack里的常用的几个组件dadabinding、viewmodel、livedata
  
