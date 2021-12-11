@@ -3,4 +3,7 @@
 **1、先画一个简单的架构图**
 ![Image text](https://raw.githubusercontent.com/zenghao1556/img-folder/master/1639236698615.jpg)
 
+
+**2、简单接单介绍下项目中使用到的一些框架**
+# 	1、mvvm使用的是jiepack里的常用的几个组件dadabinding、viewmodel、livedata
  
