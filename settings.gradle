@@ -1,0 +1,14 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+rootProject.name = "mvvm_jetpack"
+include ':app'
+include ':library_common'
+include ':library_base'
+include ':module_login'
+include ':library_network'

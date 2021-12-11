@@ -1,0 +1,50 @@
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+
+    <data>
+        <variable
+            name="model"
+            type="com.zh.frame.module_login.viewmodel.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".LoginActivity">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/username"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:hint="用户名"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/password"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/username"
+            android:hint="密码"
+            android:text="@{model.btnName}"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password"
+            android:onClick="@{()->model.login()}"
+            android:text="login"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

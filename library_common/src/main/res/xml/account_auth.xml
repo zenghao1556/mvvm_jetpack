@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<account-authenticator
+    xmlns:tools="http://schemas.android.com/tools"
+    android:accountType="com.zh.frame.mvvm_jetpack"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="ResourceName" />

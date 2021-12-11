@@ -1,0 +1,45 @@
+<manifest package="com.zh.frame.common_lib"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission
+        android:name="android.permission.AUTHENTICATE_ACCOUNTS"
+        android:maxSdkVersion="22" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.GET_ACCOUNTS"
+        android:maxSdkVersion="22" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+
+    <application>
+
+        <service
+            android:name=".keep_process.AccountService"
+            android:enabled="true"
+            android:exported="true">
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/account_auth" />
+
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name=".keep_process.AsyncProvider"
+            android:authorities="com.zh.frame.mvvm_jetpack.provider" /> <!-- 账户同步服务 -->
+        <service
+            android:name=".keep_process.AccountAsyncService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/sync_adapter" />
+        </service>
+    </application>
+</manifest>
