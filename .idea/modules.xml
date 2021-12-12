@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mvvm_jetpack.iml" filepath="$PROJECT_DIR$/.idea/modules/mvvm_jetpack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/mvvm_jetpack.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/mvvm_jetpack.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library_base/mvvm_jetpack.library_base.iml" filepath="$PROJECT_DIR$/.idea/modules/library_base/mvvm_jetpack.library_base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library_common/mvvm_jetpack.library_common.iml" filepath="$PROJECT_DIR$/.idea/modules/library_common/mvvm_jetpack.library_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library_network/mvvm_jetpack.library_network.iml" filepath="$PROJECT_DIR$/.idea/modules/library_network/mvvm_jetpack.library_network.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module_login/mvvm_jetpack.module_login.iml" filepath="$PROJECT_DIR$/.idea/modules/module_login/mvvm_jetpack.module_login.iml" />
+    </modules>
+  </component>
+</project>

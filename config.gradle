@@ -28,6 +28,8 @@ ext{
             "androidx.test.ext-junit"             : "androidx.test.ext:junit:1.1.0",
             "androidx.test.espresso:espresso-core": "androidx.test.espresso:espresso-core:3.1.1",
             "viewmodel"                           : "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0",
+            'leakcanary_debug'                    : 'com.squareup.leakcanary:leakcanary-android:2.7',
+            'leakcanary_release'                  : 'com.squareup.leakcanary:leakcanary-android-no-op:2.7',
 
     ]
 

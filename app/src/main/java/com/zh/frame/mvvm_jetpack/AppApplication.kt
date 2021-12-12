@@ -32,6 +32,7 @@ class AppApplication: BaseApplication() {
         appViewModelInstance = getAppViewModelProvider().get(AppViewModel::class.java)
         KeepLifeHelper.createAccount()
         KeepLifeHelper.asyncAccount()
+
     }
 
 
