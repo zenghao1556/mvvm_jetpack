@@ -38,6 +38,8 @@ abstract class BaseActivity<VM:BaseViewModel,DB : ViewDataBinding> : AppCompatAc
         //viewModel和databinding进行关联
         bindViewModel()
 
+        addLoadingObserve(mViewModel)
+
     }
 
     /**
@@ -61,7 +63,7 @@ abstract class BaseActivity<VM:BaseViewModel,DB : ViewDataBinding> : AppCompatAc
      * 监听loading
      * @param viewModels Array<out BaseViewModel>
      */
-    protected fun addLoadingObserve(vararg viewModels: BaseViewModel){
+    private fun addLoadingObserve(vararg viewModels: BaseViewModel){
         viewModels.forEach {viewModel ->
             //显示弹窗
             viewModel.loadingChange.showLoading.observe(this, Observer {

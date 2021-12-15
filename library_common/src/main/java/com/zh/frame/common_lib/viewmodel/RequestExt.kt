@@ -2,7 +2,6 @@ package com.zh.frame.common_lib.viewmodel
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.viewModelScope
-import com.zh.frame.base_lib.activity.BaseActivity
 import com.zh.frame.base_lib.viewmodel.BaseViewModel
 import com.zh.frame.common_lib.utitls.LoadingDialog
 import com.zh.frame.library_network.http.exceptiion.AppException
@@ -67,7 +66,9 @@ fun AppCompatActivity.loading(content:String){
 }
 
 fun AppCompatActivity.dismiss(){
-    loadingDialog?.dismiss()
+    loadingDialog?.let {
+        it.dismiss()
+    }
 }
 
 
