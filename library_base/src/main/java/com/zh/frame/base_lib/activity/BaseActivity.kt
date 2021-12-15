@@ -6,12 +6,13 @@ import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.zh.frame.base_lib.R
 import com.zh.frame.base_lib.viewmodel.BaseViewModel
 import java.lang.reflect.ParameterizedType
 
-abstract class BaseActivity<VM:BaseViewModel,DB : ViewDataBinding> : AppCompatActivity() {
+abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppCompatActivity() {
     lateinit var mViewModel: VM
     lateinit var mDataBinding: DB
 
@@ -19,19 +20,26 @@ abstract class BaseActivity<VM:BaseViewModel,DB : ViewDataBinding> : AppCompatAc
 
     abstract fun bindViewModel()
 
+    abstract fun showLoading(content: String)
+
+    abstract fun dismissLoading()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mDataBinding = DataBindingUtil.setContentView(this, layoutId())
         mDataBinding.lifecycleOwner = this
         mViewModel = createViewModel()
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-            window.statusBarColor = ContextCompat.getColor(this,R.color.welcome_bg_color)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.statusBarColor = ContextCompat.getColor(this, R.color.welcome_bg_color)
             window.decorView.fitsSystemWindows = true
         }
 
         //viewModel和databinding进行关联
         bindViewModel()
+
+        addLoadingObserve(mViewModel)
+
     }
 
     /**
@@ -50,6 +58,20 @@ abstract class BaseActivity<VM:BaseViewModel,DB : ViewDataBinding> : AppCompatAc
         return (obj.javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as VM
     }
 
+
+    /**
+     * 监听loading
+     * @param viewModels Array<out BaseViewModel>
+     */
+    private fun addLoadingObserve(viewModel: BaseViewModel) {
+        viewModel.loadingChange.showLoading.observe(this, Observer {
+            showLoading(it)
+        })
+        //关闭弹窗
+        viewModel.loadingChange.dismissLoading.observe(this, Observer {
+            dismissLoading()
+        })
+    }
 
 
 }

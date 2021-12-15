@@ -1,12 +1,20 @@
 package com.zh.frame.common_lib.viewmodel
 
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.viewModelScope
+import com.zh.frame.base_lib.activity.BaseActivity
 import com.zh.frame.base_lib.viewmodel.BaseViewModel
+import com.zh.frame.common_lib.utitls.LoadingDialog
 import com.zh.frame.library_network.http.exceptiion.AppException
 import com.zh.frame.library_network.base.BaseResponse
 import com.zh.frame.library_network.http.exceptiion.ExceptionHandle
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+
+
+
+private var loadingDialog:LoadingDialog? =null
+
 
 /**
  *
@@ -29,15 +37,40 @@ fun <T> BaseViewModel.request(
             block()
         }.onSuccess {
             if (it.getCode() == 0){
+                loadingChange.dismissLoading.postValue(true)
                 success(it.getResult())
             }else{
+                loadingChange.dismissLoading.postValue(true)
                 error(AppException(it.getCode(),it.getErrorMessage()))
             }
         }.onFailure {
+            loadingChange.dismissLoading.postValue(true)
             error(ExceptionHandle.handleException(it))
         }
     }
 }
+
+
+/**
+ * 对actvity进行扩展
+ * 方便在进行网络请求时进行显示loading窗口
+ * 这样做的好处就是把common和base进行解耦，否则我就直接在baseActivity里写了
+ * 但是这个地方还是有优化空间的，只能在实际业务开发中慢慢摸索了
+ */
+fun AppCompatActivity.loading(content:String){
+    if (loadingDialog == null){
+        loadingDialog = LoadingDialog.Builder(this).setContent(content).create()
+    }
+    if (!loadingDialog!!.isShowing){
+        loadingDialog!!.show()
+    }
+}
+
+fun AppCompatActivity.dismiss(){
+    loadingDialog?.dismiss()
+}
+
+
 
 
 fun <R> chainRequest(action:()->R) = Helper(action())

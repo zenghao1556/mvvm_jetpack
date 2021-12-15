@@ -24,9 +24,6 @@ class LoginViewModel: BaseViewModel() {
 
     var btnName:CustomLiveData<String> = CustomLiveData()
 
-    fun jumpTestActivity() {
-        btnName.setValue("yo yo")
-    }
 
     fun login(){
         //使用扩展函数 对数据结构进行解析 包括异常处理
@@ -39,6 +36,7 @@ class LoginViewModel: BaseViewModel() {
             },{
                 Toast.makeText(BaseApplication.application,it.errorMsg,Toast.LENGTH_SHORT).show()
             },
+            true
         )
 
 

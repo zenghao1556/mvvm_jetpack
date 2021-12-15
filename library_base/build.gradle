@@ -60,6 +60,7 @@ dependencies {
     api rootProject.ext.dependencies["mmkv"]
     api rootProject.ext.dependencies["glide"]
     api rootProject.ext.dependencies["arouter-api"]
+    api rootProject.ext.dependencies["loading_lib"]
     kapt rootProject.ext.dependencies["arouter-compiler"]
 
 }

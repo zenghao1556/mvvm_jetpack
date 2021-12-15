@@ -36,4 +36,10 @@ class WelcomeActivity : BaseActivity<WelcomeViewModel,ActivityWelcomeBinding>() 
 
     override fun bindViewModel() {
     }
+
+    override fun showLoading(content: String) {
+    }
+
+    override fun dismissLoading() {
+    }
 }

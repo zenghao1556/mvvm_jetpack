@@ -44,6 +44,7 @@ ext{
             "fastjson"         : 'com.alibaba:fastjson:1.1.72.android',
             "converter-gson"   : 'com.squareup.retrofit2:converter-gson:2.9.0',
             "retrofit"         : 'com.squareup.retrofit2:retrofit:2.9.0',
+            'loading_lib'      : 'com.github.ybq:Android-SpinKit:1.4.0',
 
     ]
 
