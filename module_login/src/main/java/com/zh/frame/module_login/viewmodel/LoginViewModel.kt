@@ -4,6 +4,7 @@ import android.widget.Toast
 import com.zh.frame.base_lib.BaseApplication
 import com.zh.frame.base_lib.viewmodel.BaseViewModel
 import com.zh.frame.common_lib.livebus.CustomLiveData
+import com.zh.frame.common_lib.viewmodel.chainRequest
 import com.zh.frame.common_lib.viewmodel.request
 import com.zh.frame.library_network.http.HttpClient
 
@@ -39,6 +40,9 @@ class LoginViewModel: BaseViewModel() {
                 Toast.makeText(BaseApplication.application,it.errorMsg,Toast.LENGTH_SHORT).show()
             },
         )
+
+
+
     }
 
 

@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -35,6 +36,12 @@ android {
     dataBinding {
         enabled true
     }
+
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
+    }
 }
 
 dependencies {
@@ -53,5 +60,6 @@ dependencies {
     api rootProject.ext.dependencies["mmkv"]
     api rootProject.ext.dependencies["glide"]
     api rootProject.ext.dependencies["arouter-api"]
+    kapt rootProject.ext.dependencies["arouter-compiler"]
 
 }

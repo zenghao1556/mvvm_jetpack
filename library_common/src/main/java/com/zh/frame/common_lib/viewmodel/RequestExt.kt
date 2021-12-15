@@ -38,3 +38,11 @@ fun <T> BaseViewModel.request(
         }
     }
 }
+
+
+fun <R> chainRequest(action:()->R) = Helper(action())
+
+class Helper<T>(var item:T){
+    fun <R> map(action:T.() ->R) = Helper(action(item))
+    fun observer(action:T.() -> Unit) = Helper(action(item))
+}

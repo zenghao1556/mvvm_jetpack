@@ -1,5 +1,6 @@
 package com.zh.frame.mvvm_jetpack
 
+import com.alibaba.android.arouter.launcher.ARouter
 import com.zh.frame.base_lib.BaseApplication
 import com.zh.frame.common_lib.keep_process.KeepLifeHelper
 import com.zh.frame.common_lib.viewmodel.AppViewModel
@@ -32,6 +33,14 @@ class AppApplication: BaseApplication() {
         appViewModelInstance = getAppViewModelProvider().get(AppViewModel::class.java)
         KeepLifeHelper.createAccount()
         KeepLifeHelper.asyncAccount()
+
+
+        ///初始化阿里的ARouter
+        if (isDebug){
+            ARouter.openLog()
+            ARouter.openDebug()
+        }
+        ARouter.init(this)
 
     }
 

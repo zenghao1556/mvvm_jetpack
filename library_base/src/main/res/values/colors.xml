@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="welcome_bg_color" tools:ignore="ResourceName">#e0c6b5</color>
+    <color name="purple_200" tools:ignore="ResourceName">#FFBB86FC</color>
+    <color name="purple_500" tools:ignore="ResourceName">#FF6200EE</color>
+    <color name="purple_700" tools:ignore="ResourceName">#FF3700B3</color>
+    <color name="teal_200" tools:ignore="ResourceName">#FF03DAC5</color>
+    <color name="teal_700" tools:ignore="ResourceName">#FF018786</color>
+    <color name="black" tools:ignore="ResourceName">#FF000000</color>
+    <color name="white" tools:ignore="ResourceName">#FFFFFFFF</color>
+    <color name="transparent" tools:ignore="ResourceName">#00000000</color>
+</resources>

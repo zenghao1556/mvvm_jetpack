@@ -40,12 +40,7 @@ open class BaseApplication: Application(),ViewModelStoreOwner {
         //初始化全局viewModel
         application = this
 
-        ///初始化阿里的ARouter
-        if (isDebug){
-            ARouter.openLog()
-            ARouter.openDebug()
-        }
-        ARouter.init(this)
+
     }
 
     /**

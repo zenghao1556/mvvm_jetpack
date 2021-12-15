@@ -1,6 +1,5 @@
 package com.zh.frame.base_lib.view
 
-import com.zh.frame.base_lib.view.IBaseView
 
 /**
  *

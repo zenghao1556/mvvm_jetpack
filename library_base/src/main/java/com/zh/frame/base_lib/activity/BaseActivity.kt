@@ -1,10 +1,13 @@
 package com.zh.frame.base_lib.activity
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
+import com.zh.frame.base_lib.R
 import com.zh.frame.base_lib.viewmodel.BaseViewModel
 import java.lang.reflect.ParameterizedType
 
@@ -14,12 +17,21 @@ abstract class BaseActivity<VM:BaseViewModel,DB : ViewDataBinding> : AppCompatAc
 
     abstract fun layoutId(): Int
 
+    abstract fun bindViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mDataBinding = DataBindingUtil.setContentView(this, layoutId())
         mDataBinding.lifecycleOwner = this
         mViewModel = createViewModel()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            window.statusBarColor = ContextCompat.getColor(this,R.color.welcome_bg_color)
+            window.decorView.fitsSystemWindows = true
+        }
+
+        //viewModel和databinding进行关联
+        bindViewModel()
     }
 
     /**
@@ -37,5 +49,7 @@ abstract class BaseActivity<VM:BaseViewModel,DB : ViewDataBinding> : AppCompatAc
     private fun <VM> getVmClazz(obj: Any): VM {
         return (obj.javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as VM
     }
+
+
 
 }

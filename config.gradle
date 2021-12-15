@@ -37,13 +37,13 @@ ext{
     //依赖第三方配置
     dependencies = [
             "mmkv"             : 'com.tencent:mmkv:1.2.11',
-            "glide"            : "com.github.bumptech.glide:glide:4.9.0",
-            "glide-compiler"   : "com.github.bumptech.glide:compiler:4.9.0",
-            "arouter-api"      : "com.alibaba:arouter-api:1.5.2",
-            "arouter-compiler" : "com.alibaba:arouter-compiler:1.2.2",
+            "glide"            : 'com.github.bumptech.glide:glide:4.9.0',
+            "glide-compiler"   : 'com.github.bumptech.glide:compiler:4.9.0',
+            "arouter-api"      : 'com.alibaba:arouter-api:1.5.2',
+            "arouter-compiler" : 'com.alibaba:arouter-compiler:1.2.2',
             "fastjson"         : 'com.alibaba:fastjson:1.1.72.android',
-            "converter-gson"   : "com.squareup.retrofit2:converter-gson:2.9.0",
-            "retrofit"         : "com.squareup.retrofit2:retrofit:2.9.0",
+            "converter-gson"   : 'com.squareup.retrofit2:converter-gson:2.9.0',
+            "retrofit"         : 'com.squareup.retrofit2:retrofit:2.9.0',
 
     ]
 
