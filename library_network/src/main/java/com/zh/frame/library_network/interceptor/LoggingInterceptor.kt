@@ -27,8 +27,8 @@ class LoggingInterceptor:Interceptor {
 
         // request
         val request = chain.request()
-        val method = request.method()
-        val url = request.url()
+        val method = request.method
+        val url = request.url
         Log.i("HttpLogging", "【Http】Request start")
         Log.i("HttpLogging", "【Http】$method $url")
 
@@ -38,13 +38,13 @@ class LoggingInterceptor:Interceptor {
         protocol?.let { Log.i("HttpLogging", "【Http】protocol:$it") }
 
         // headers
-        val requestHeaders = request.headers()
+        val requestHeaders = request.headers
        /* requestHeaders.forEach {
             Log.i("HttpLogging", "【Http】[header]${it.first}:${it.second}")
         }
 */
         // body
-        val reqBody = request.body()
+        val reqBody = request.body
         reqBody?.contentType()?.let { Log.i("HttpLogging", "【Http】Content-Type:${it}") }
         reqBody?.contentLength()?.let { Log.i("HttpLogging", "【Http】Content-Length:${it}") }
         Log.i("HttpLogging", "【Http】Request $method end")
@@ -63,18 +63,18 @@ class LoggingInterceptor:Interceptor {
             throw e
         }
         val tookMs = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNs)
-        Log.i("HttpLogging", "【Http】code:${response.code()} ($tookMs ms)")
+        Log.i("HttpLogging", "【Http】code:${response.code} ($tookMs ms)")
 
         // headers
-        val respHeaders = response.headers()
+        val respHeaders = response.headers
 
         /*respHeaders.forEach {
             Log.i("HttpLogging", "【Http】[header]${it.first}:${it.second}")
         }*/
 
         // body
-        val respBody = response.body()
-        response.message().let {
+        val respBody = response.body
+        response.message.let {
             if (!TextUtils.isEmpty(it)) Log.i("HttpLogging", "【Http】message:${it}")
         }
 
@@ -89,7 +89,7 @@ class LoggingInterceptor:Interceptor {
             var buffer = source?.buffer
             var gzippedLength = 0L
             if ("gzip".equals(respHeaders["Content-Encoding"], true)) {
-                gzippedLength = buffer?.size()!!
+                gzippedLength = buffer?.size!!
                 var gzippedResponseBody: GzipSource? = null
                 try {
                     gzippedResponseBody = GzipSource(buffer.clone())
@@ -114,7 +114,7 @@ class LoggingInterceptor:Interceptor {
                 }
             }
 
-            Log.i("HttpLogging", "【Http】Response $method end (${buffer?.size()}-byte"
+            Log.i("HttpLogging", "【Http】Response $method end (${buffer?.size}-byte"
                     + if (gzippedLength != 0L) ", $gzippedLength--gzipped-byte)" else ")")
         }
         return response
@@ -129,7 +129,7 @@ class LoggingInterceptor:Interceptor {
     private fun a(buffer: Buffer): Boolean {
         return try {
             val prefix = Buffer()
-            val byteCount = if (buffer.size() < 64L) buffer.size() else 64L
+            val byteCount = if (buffer.size < 64L) buffer.size else 64L
             buffer.copyTo(prefix, 0L, byteCount)
             var i = 0
             while (i < 16 && !prefix.exhausted()) {

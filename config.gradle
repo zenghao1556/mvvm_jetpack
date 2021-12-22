@@ -41,10 +41,13 @@ ext{
             "glide-compiler"   : 'com.github.bumptech.glide:compiler:4.9.0',
             "arouter-api"      : 'com.alibaba:arouter-api:1.5.2',
             "arouter-compiler" : 'com.alibaba:arouter-compiler:1.2.2',
-            "fastjson"         : 'com.alibaba:fastjson:1.1.72.android',
-            "converter-gson"   : 'com.squareup.retrofit2:converter-gson:2.9.0',
+            'okhttp-logging'   : 'com.squareup.okhttp3:logging-interceptor:4.9.3',
             "retrofit"         : 'com.squareup.retrofit2:retrofit:2.9.0',
             'loading_lib'      : 'com.github.ybq:Android-SpinKit:1.4.0',
+            'easypermissions'  : 'pub.devrel:easypermissions:3.0.0',
+            'moshi'            : 'com.squareup.moshi:moshi:1.13.0',
+            'moshi-converter'  : 'com.squareup.retrofit2:converter-moshi:2.9.0',
+            'moshi-kotlin-codegen'                 : 'com.squareup.moshi:moshi-kotlin-codegen:1.13.0',
 
     ]
 

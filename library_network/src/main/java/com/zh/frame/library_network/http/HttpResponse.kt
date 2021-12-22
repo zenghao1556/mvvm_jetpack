@@ -1,5 +1,8 @@
 package com.zh.frame.library_network.http
 
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+import com.squareup.moshi.JsonQualifier
 import com.zh.frame.library_network.base.BaseResponse
 
 /**
@@ -11,7 +14,8 @@ import com.zh.frame.library_network.base.BaseResponse
  * @Author: 曾浩
  * @CreateDate: 2021/12/9 2:39 下午
  */
-data class HttpResponse<T>(val errorCode: Int, val errorMsg: String, val data: T): BaseResponse<T>(){
+@JsonClass(generateAdapter = true)
+data class HttpResponse<T>(@Json(name = "errorCode") val errorCode: Int, @Json(name = "errorMsg") val errorMsg: String?,@Json(name = "data") val data: T?): BaseResponse<T>(){
 
     override fun getErrorMessage() = errorMsg
 

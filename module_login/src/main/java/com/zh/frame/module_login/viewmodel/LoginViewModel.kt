@@ -4,9 +4,9 @@ import android.widget.Toast
 import com.zh.frame.base_lib.BaseApplication
 import com.zh.frame.base_lib.viewmodel.BaseViewModel
 import com.zh.frame.common_lib.livebus.CustomLiveData
-import com.zh.frame.common_lib.viewmodel.chainRequest
 import com.zh.frame.common_lib.viewmodel.request
 import com.zh.frame.library_network.http.HttpClient
+
 
 /**
  *
@@ -17,7 +17,7 @@ import com.zh.frame.library_network.http.HttpClient
  * @Author: 曾浩
  * @CreateDate: 2021/12/10 11:17 上午
  */
-class LoginViewModel: BaseViewModel() {
+class LoginViewModel: BaseViewModel(){
 
     var userName:String = "12345"
     var password:String = "12345"
@@ -38,9 +38,6 @@ class LoginViewModel: BaseViewModel() {
             },
             true
         )
-
-
-
     }
 
 

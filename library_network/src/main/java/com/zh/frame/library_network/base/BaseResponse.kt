@@ -11,7 +11,7 @@ package com.zh.frame.library_network.base
  */
 abstract class BaseResponse<T> {
     abstract fun getCode():Int
-    abstract fun getResult():T
-    abstract fun getErrorMessage():String
+    abstract fun getResult():T?
+    abstract fun getErrorMessage():String?
     abstract fun isSucces():Boolean
 }

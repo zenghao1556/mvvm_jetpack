@@ -1,7 +1,7 @@
 package com.zh.frame.library_network.reponse.login
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
 /**
  *
@@ -12,8 +12,8 @@ import kotlinx.parcelize.Parcelize
  * @Author: 曾浩
  * @CreateDate: 2021/12/9 2:47 下午
  */
-@Parcelize
+@JsonClass(generateAdapter = true)
 data class LoginResponse(
-    var name:String = "",
-    var nickname:String = ""
-):Parcelable
+    @Json(name = "name") var name:String = "",
+    @Json(name = "nickname") var nickname:String = ""
+)

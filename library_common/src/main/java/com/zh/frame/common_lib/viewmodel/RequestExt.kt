@@ -26,7 +26,7 @@ private var loadingDialog:LoadingDialog? =null
  */
 fun <T> BaseViewModel.request(
     block: suspend () -> BaseResponse<T>,
-    success: (T) -> Unit,
+    success: (T?) -> Unit,
     error: (AppException) -> Unit = {},
     isShowDialog: Boolean = false,
 ):Job{
